@@ -33,22 +33,46 @@
                     </div>
                 </div>
 
-                <!-- Search -->
+                <!-- Search and New Group -->
                 <div class="p-3 border-bottom">
-                    <div class="input-group">
+                    <div class="input-group mb-2">
                         <span class="input-group-text bg-light border-end-0">
                             <i class="bi bi-search"></i>
                         </span>
                         <input type="text" class="form-control border-start-0 bg-light" id="searchUsers" placeholder="Search users...">
                     </div>
+                    <button class="btn btn-primary w-100" id="createGroupBtn">
+                        <i class="bi bi-people-fill me-2"></i>Create Group
+                    </button>
                 </div>
 
-                <!-- User List -->
+                <!-- Tabs for Direct and Group Chats -->
+                <div class="chat-tabs border-bottom">
+                    <div class="d-flex">
+                        <button class="flex-fill btn btn-link text-decoration-none chat-tab active" id="directChatsTab" data-tab="direct">
+                            <i class="bi bi-person"></i> Direct
+                        </button>
+                        <button class="flex-fill btn btn-link text-decoration-none chat-tab" id="groupChatsTab" data-tab="groups">
+                            <i class="bi bi-people"></i> Groups
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Direct Chats List -->
                 <div class="user-list" id="userList">
                     <!-- Users will be loaded here dynamically -->
                     <div class="text-center p-4 text-muted">
                         <i class="bi bi-chat-dots fs-1 d-block mb-2"></i>
                         <p>Loading users...</p>
+                    </div>
+                </div>
+
+                <!-- Group Chats List -->
+                <div class="user-list d-none" id="groupList">
+                    <!-- Groups will be loaded here dynamically -->
+                    <div class="text-center p-4 text-muted">
+                        <i class="bi bi-people fs-1 d-block mb-2"></i>
+                        <p>No groups yet</p>
                     </div>
                 </div>
             </div>
@@ -96,6 +120,37 @@
                             </button>
                         </form>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Group Creation Modal -->
+    <div class="modal fade" id="createGroupModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create New Group</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="createGroupForm">
+                        <div class="mb-3">
+                            <label for="groupName" class="form-label">Group Name</label>
+                            <input type="text" class="form-control" id="groupName" placeholder="Enter group name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Select Members</label>
+                            <div id="membersList" class="border rounded p-2" style="max-height: 200px; overflow-y: auto;">
+                                <!-- Members checkboxes will be loaded here -->
+                            </div>
+                        </div>
+                        <div class="alert alert-danger d-none" id="groupError"></div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="submitGroupBtn">Create Group</button>
                 </div>
             </div>
         </div>

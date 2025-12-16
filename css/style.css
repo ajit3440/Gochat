@@ -350,6 +350,53 @@ html, body {
     animation: spin 0.75s linear infinite;
 }
 
+/* Chat Tabs */
+.chat-tabs {
+    background-color: #fff;
+}
+
+.chat-tab {
+    padding: 12px;
+    color: var(--text-muted);
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.chat-tab.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.chat-tab:hover {
+    color: var(--secondary-color);
+}
+
+/* Group Badge */
+.group-badge {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 8px;
+}
+
+/* Member Checkbox */
+.member-checkbox {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.member-checkbox:hover {
+    background-color: var(--bg-light);
+}
+
+.member-checkbox input[type="checkbox"] {
+    cursor: pointer;
+}
+
 /* Transitions */
 * {
     transition: background-color 0.2s ease, color 0.2s ease;
