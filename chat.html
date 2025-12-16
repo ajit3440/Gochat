@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp - Messages</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💬</text></svg>">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="chat-page">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <!-- Sidebar - Chat List -->
+            <div class="col-md-4 col-lg-3 px-0 chat-sidebar">
+                <!-- Header -->
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between align-items-center p-3">
+                        <div class="d-flex align-items-center">
+                            <div class="user-avatar me-2" id="currentUserAvatar">
+                                <i class="bi bi-person-circle"></i>
+                            </div>
+                            <h5 class="mb-0" id="currentUserName">User</h5>
+                        </div>
+                        <button class="btn btn-link text-dark" id="logoutBtn" title="Logout">
+                            <i class="bi bi-box-arrow-right fs-5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Search -->
+                <div class="p-3 border-bottom">
+                    <div class="input-group">
+                        <span class="input-group-text bg-light border-end-0">
+                            <i class="bi bi-search"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0 bg-light" id="searchUsers" placeholder="Search users...">
+                    </div>
+                </div>
+
+                <!-- User List -->
+                <div class="user-list" id="userList">
+                    <!-- Users will be loaded here dynamically -->
+                    <div class="text-center p-4 text-muted">
+                        <i class="bi bi-chat-dots fs-1 d-block mb-2"></i>
+                        <p>Loading users...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Chat Area -->
+            <div class="col-md-8 col-lg-9 px-0 chat-main">
+                <!-- Welcome Screen -->
+                <div class="welcome-screen d-flex align-items-center justify-content-center h-100" id="welcomeScreen">
+                    <div class="text-center">
+                        <i class="bi bi-chat-heart fs-1 text-primary mb-3 d-block"></i>
+                        <h3>Welcome to ChatApp</h3>
+                        <p class="text-muted">Select a conversation to start messaging</p>
+                    </div>
+                </div>
+
+                <!-- Chat Container -->
+                <div class="chat-container d-none" id="chatContainer">
+                    <!-- Chat Header -->
+                    <div class="chat-header">
+                        <div class="d-flex align-items-center p-3">
+                            <div class="user-avatar me-3" id="chatUserAvatar">
+                                <i class="bi bi-person-circle"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6 class="mb-0" id="chatUserName">User Name</h6>
+                                <small class="text-muted" id="chatUserStatus">Online</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Messages Area -->
+                    <div class="messages-area" id="messagesArea">
+                        <!-- Messages will be loaded here -->
+                    </div>
+
+                    <!-- Message Input -->
+                    <div class="message-input">
+                        <form id="messageForm" class="d-flex align-items-center p-3">
+                            <button type="button" class="btn btn-link text-secondary" id="attachBtn">
+                                <i class="bi bi-paperclip fs-5"></i>
+                            </button>
+                            <input type="text" class="form-control flex-grow-1 mx-2" id="messageInput" placeholder="Type a message..." autocomplete="off">
+                            <button type="submit" class="btn btn-primary rounded-circle" id="sendBtn">
+                                <i class="bi bi-send-fill"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts (ES6 Modules) -->
+    <script type="module" src="js/chat.js"></script>
+</body>
+</html>
